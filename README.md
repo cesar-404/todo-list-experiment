@@ -1,4 +1,6 @@
 # Todo List Experiment
+[![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://java.com)
+[![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io)
 
 Este é um pojeto de **estudo** que visa entender os princípios de Clean Code e Clean Architecture. Essa é a primeira versão do projeto, uma simples API de **TODO-LIST**. <br>
 Ao longo do tempo, vou refazer esse mesmo código aplicando conceitos do livro Clean Code e depois do Clean Architecture, ambos do Robert Cecil Martin (**Uncle Bob**).
