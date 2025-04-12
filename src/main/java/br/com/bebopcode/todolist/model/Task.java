@@ -1,5 +1,7 @@
 package br.com.bebopcode.todolist.model;
 
+import br.com.bebopcode.todolist.enums.TaskPriority;
+import br.com.bebopcode.todolist.enums.TaskStatus;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,19 +19,20 @@ public class Task {
 
     private String description;
 
-    private String priority;
+    @Enumerated(EnumType.STRING)
+    private TaskPriority priority;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private TaskStatus status;
 
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Task(Long id, String title, String description, String priority, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Task(Long id, String title, String description, TaskPriority priority, TaskStatus status, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -39,13 +42,20 @@ public class Task {
         this.updatedAt = updatedAt;
     }
 
-    public Task(String title, String description, String priority, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Task(String title, String description, TaskPriority priority, TaskStatus status, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.title = title;
         this.description = description;
         this.priority = priority;
         this.status = status;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Task(String title, String description, TaskPriority priority, TaskStatus status) {
+        this.title = title;
+        this.description = description;
+        this.priority = priority;
+        this.status = status;
     }
 
     public Task() {
@@ -75,19 +85,19 @@ public class Task {
         this.description = description;
     }
 
-    public String getPriority() {
+    public TaskPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(String priority) {
+    public void setPriority(TaskPriority priority) {
         this.priority = priority;
     }
 
-    public String getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
